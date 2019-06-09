@@ -30,8 +30,12 @@ namespace SinusoidPathPlanner
   {
     if (!initialized_)
     {
+      // Set up pubs/subs for class
       ros::NodeHandle private_nh("sinusoid_path_planner");
       plan_pub_ = private_nh.advertise<nav_msgs::Path>("custom_plan", 1);
+
+      // Set up default parameters
+      sinusoidal_path = false;
 
       initialized_ = true;
     }
@@ -74,8 +78,17 @@ namespace SinusoidPathPlanner
                                const geometry_msgs::PoseStamped& goal,
                                std::vector<geometry_msgs::PoseStamped>& plan )
   {
-    plan.push_back(start);
-    plan.push_back(goal);
+    if (sinusoidal_path)
+    {
+      ROS_INFO("Publishing a sinusoidal path");
+      // make a sinusoidal path
+    }
+    else
+    {
+      ROS_INFO("Publishing carrot path");
+      plan.push_back(start);
+      plan.push_back(goal);
+    }
     publishPlan(plan, 0.0, 1.0, 0.0, 0.0);
     return true;
   }

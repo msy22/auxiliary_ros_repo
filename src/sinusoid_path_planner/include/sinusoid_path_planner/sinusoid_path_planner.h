@@ -24,11 +24,14 @@ namespace SinusoidPathPlanner
       GlobalPlanner();
       GlobalPlanner(std::string name, costmap_2d::Costmap2DROS* costmap_ros);
 
-      /** overridden classes from interface nav_core::BaseGlobalPlanner **/
+      /** overridden classes from interface nav_core::BaseGlobalPlanner. These
+          are called automatically by the move_base node **/
       void initialize(std::string name, costmap_2d::Costmap2DROS* costmap_ros);
       bool makePlan(const geometry_msgs::PoseStamped& start,
                     const geometry_msgs::PoseStamped& goal,
                     std::vector<geometry_msgs::PoseStamped>& plan);
+
+      /** Custom classes for fulfilling other functions **/
       void publishPlan(const std::vector<geometry_msgs::PoseStamped>& path,
                        double r, double g, double b, double a);
 
