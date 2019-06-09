@@ -11,18 +11,28 @@ namespace SinusoidPathPlanner
 {
 
   GlobalPlanner::GlobalPlanner ()
+    : initialized_(false)
   {
 
   }
 
   GlobalPlanner::GlobalPlanner(std::string name, costmap_2d::Costmap2DROS* costmap_ros)
+    : initialized_(false)
   {
     initialize(name, costmap_ros);
   }
 
   void GlobalPlanner::initialize(std::string name, costmap_2d::Costmap2DROS* costmap_ros)
   {
+    if (!initialized_)
+    {
+      ros::NodeHandle private_nh("sinusoid_path_planner");
+      plan_pub_ = private_nh.advertise<nav_msgs::Path>("custom_plan", 1);
 
+      initialized_ = true;
+    }
+    else
+      ROS_WARN("This planner has already been initialized!");
   }
 
 

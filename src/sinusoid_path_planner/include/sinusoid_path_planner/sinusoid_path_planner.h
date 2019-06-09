@@ -30,6 +30,10 @@ namespace SinusoidPathPlanner
                     const geometry_msgs::PoseStamped& goal,
                     std::vector<geometry_msgs::PoseStamped>& plan);
 
+    protected:
+      ros::Publisher plan_pub_;
+      bool initialized_;
+
     private:
       navfn::NavfnROS* navfn_planner = NULL;
   };
