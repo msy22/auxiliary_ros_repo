@@ -17,7 +17,6 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   sensor_msgs
   roslaunch
-  navfn
 )
 
 ## Declare a catkin package - necessary otherwise .cpp file won't be callable
