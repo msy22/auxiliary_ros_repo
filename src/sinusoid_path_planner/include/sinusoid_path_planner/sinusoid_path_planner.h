@@ -35,9 +35,11 @@ namespace SinusoidPathPlanner
     protected:
       ros::Publisher plan_pub_;
       bool initialized_;
-
-    private:
+      bool sinusoidal_path;
       navfn::NavfnROS* navfn_planner = NULL;
+      float sinusoid_frequency;
+      float sinusoid_amplitude;
+
   };
 }
 #endif
