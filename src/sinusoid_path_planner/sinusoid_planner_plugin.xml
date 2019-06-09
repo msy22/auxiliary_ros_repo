@@ -1,0 +1,7 @@
+<library path="lib/libsinusoid_path_planner">
+  <class name="sinusoid_path_planner/GlobalPlanner" type="SinusoidPathPlanner::GlobalPlanner" base_class_type="nav_core::BaseGlobalPlanner">
+    <description>
+      This is a global planner plugin for a planner that can plot sinusoidal paths on demand.
+    </description>
+  </class>
+</library>
