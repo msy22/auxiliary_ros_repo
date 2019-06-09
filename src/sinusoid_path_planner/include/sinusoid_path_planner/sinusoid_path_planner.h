@@ -29,6 +29,8 @@ namespace SinusoidPathPlanner
       bool makePlan(const geometry_msgs::PoseStamped& start,
                     const geometry_msgs::PoseStamped& goal,
                     std::vector<geometry_msgs::PoseStamped>& plan);
+      void publishPlan(const std::vector<geometry_msgs::PoseStamped>& path,
+                       double r, double g, double b, double a);
 
     protected:
       ros::Publisher plan_pub_;
