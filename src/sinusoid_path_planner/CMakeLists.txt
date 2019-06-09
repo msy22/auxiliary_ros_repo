@@ -4,6 +4,10 @@ project(sinusoid_path_planner)
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
 
+set(PCL_ROOT /usr/local)
+set(PCL_LIBRARY_DIRS /usr/local/lib)
+set(PCL_INCLUDE_DIRS /usr/local/include/pcl-1.8)
+
 find_package(PCL 1.8 REQUIRED)
 find_package(PkgConfig)
 find_package(Eigen3 3.3.7 REQUIRED)
@@ -13,6 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   sensor_msgs
   roslaunch
+  navfn
 )
 
 ## Declare a catkin package - necessary otherwise .cpp file won't be callable
