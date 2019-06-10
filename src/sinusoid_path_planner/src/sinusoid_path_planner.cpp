@@ -90,9 +90,10 @@ namespace SinusoidPathPlanner
     }
     else
     {
-      ROS_INFO("Publishing carrot path");
-      plan.push_back(start);
-      plan.push_back(goal);
+      ROS_INFO("Publishing navfn path");
+//      plan.push_back(start);
+//      plan.push_back(goal);
+      navfn_planner->makePlan(start, goal, plan);
     }
     publishPlan(plan, 0.0, 1.0, 0.0, 0.0);
     return true;
