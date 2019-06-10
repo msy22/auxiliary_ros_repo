@@ -34,3 +34,5 @@ build/
 *.txt~
 
 *.launch~
+
+*.yaml~
