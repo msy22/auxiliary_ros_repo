@@ -33,6 +33,11 @@ namespace SinusoidPathPlanner
       // Set up pubs/subs for class
       ros::NodeHandle private_nh("sinusoid_path_planner");
       plan_pub_ = private_nh.advertise<nav_msgs::Path>("custom_plan", 1);
+      ROS_INFO("Created global planner sinusoid_path_planner/GlobalPlanner");
+
+      // Initialize Navfn planner
+      navfn_planner = new navfn::NavfnROS();
+      navfn_planner->initialize(name, costmap_ros);
 
       // Set up default parameters
       sinusoidal_path = false;
